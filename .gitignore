@@ -34,5 +34,8 @@ node_modules
 
 # bower
 bower
-
 obj
+
+# analytics
+.dat
+.tmp
