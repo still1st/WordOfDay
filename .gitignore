@@ -37,5 +37,5 @@ bower
 obj
 
 # analytics
-.dat
-.tmp
+*.tmp
+*.dat

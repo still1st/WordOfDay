@@ -37,7 +37,6 @@
     <Content Include=".bowerrc" />
     <Content Include="package.json" />
     <Content Include="public\css\main.css" />
-    <Content Include="README.md" />
     <Content Include="views\index.handlebars" />
     <Content Include="views\layouts\layout.handlebars" />
     <Content Include="views\error.handlebars" />
