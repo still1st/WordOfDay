@@ -1,0 +1,5 @@
+﻿{
+  "database": {
+    "connection": "mongodb://admin:admin@ds019950.mlab.com:19950/wordofday"
+  }
+}

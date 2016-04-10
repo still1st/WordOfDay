@@ -34,7 +34,9 @@
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="services\repository.js" />
     <Content Include=".bowerrc" />
+    <Content Include="config.json" />
     <Content Include="package.json" />
     <Content Include="public\css\main.css" />
     <Content Include="views\index.handlebars" />
@@ -43,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="services\" />
     <Folder Include="public\" />
     <Folder Include="public\img\" />
     <Folder Include="public\js\" />
