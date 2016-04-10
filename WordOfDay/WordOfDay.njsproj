@@ -31,10 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="models\account.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
-    <Compile Include="services\repository.js" />
+    <Compile Include="services\database.js" />
     <Content Include=".bowerrc" />
     <Content Include="config.json" />
     <Content Include="package.json" />
@@ -42,9 +43,12 @@
     <Content Include="views\index.handlebars" />
     <Content Include="views\layouts\layout.handlebars" />
     <Content Include="views\error.handlebars" />
+    <Content Include="views\login.handlebars" />
+    <Content Include="views\register.handlebars" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="models\" />
     <Folder Include="services\" />
     <Folder Include="public\" />
     <Folder Include="public\img\" />
