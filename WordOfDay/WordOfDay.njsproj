@@ -32,19 +32,23 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="models\account.js" />
+    <Compile Include="models\favorite.js" />
+    <Compile Include="models\word.js" />
     <Compile Include="routes\index.js" />
-    <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="routes\words.js" />
     <Compile Include="services\database.js" />
     <Content Include=".bowerrc" />
     <Content Include="config.json" />
     <Content Include="package.json" />
     <Content Include="public\css\main.css" />
+    <Content Include="views\words\add.handlebars" />
     <Content Include="views\index.handlebars" />
     <Content Include="views\layouts\layout.handlebars" />
     <Content Include="views\error.handlebars" />
     <Content Include="views\login.handlebars" />
     <Content Include="views\register.handlebars" />
+    <Content Include="views\words\list.handlebars" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
@@ -57,6 +61,7 @@
     <Folder Include="routes\" />
     <Folder Include="views\" />
     <Folder Include="views\layouts\" />
+    <Folder Include="views\words\" />
     <Folder Include="views\partials\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

@@ -38,10 +38,10 @@ passport.deserializeUser(Account.deserializeUser());
 db.connect();
 
 // routes
-var routes = require('./routes/index');
-var users = require('./routes/users');
-app.use('/', routes);
-app.use('/users', users);
+var index = require('./routes/index');
+var words = require('./routes/words.js');
+app.use('/', index);
+app.use('/words', words);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -73,6 +73,5 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
