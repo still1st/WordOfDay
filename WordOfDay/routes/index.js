@@ -2,9 +2,16 @@
 var router = express.Router();
 var passport = require('passport');
 var Account = require('../models/account');
+var wordService = require('../services/wordService');
 
 router.get('/', function (req, res) {
-    res.render('index', { user: req.user });
+    wordService.findCurrentWord(function (err, word) {
+        if (err) {
+            throw err
+        }
+
+        res.render('index', { user: req.user, word: word });
+    });
 });
 
 router.get('/register', function (req, res) { 

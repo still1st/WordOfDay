@@ -1,1 +1,45 @@
-﻿<h1>Добавьте новое слово</h1>
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">
+            Добавление нового слова
+        </h1>
+    </div>
+    <!--BODY-->
+    <div class="panel-body">
+        <form name="word" action="/words/add" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label>Название</label>
+                </div>
+                <div class="col-sm-9">
+                    <input name="title" class="form-control" type="text" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label>Описание</label>
+                </div>
+                <div class="col-sm-9">
+                    <textarea rows="3" maxlength="255" name="description" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label>Пример</label>
+                </div>
+                <div class="col-sm-9">
+                    <textarea rows="3" maxlength="255" name="example" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label>День</label>
+                </div>
+                <div class="col-sm-9">
+                    <input name="date" class="form-control" type="date" required/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Добавить</button>
+        </form>
+    </div>
+</div>    

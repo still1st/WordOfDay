@@ -1,1 +1,23 @@
-﻿<h1>Список слов</h1>
+﻿<a href="/words/add">Добавить новое</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Дата</th>
+            <th>Слово</th>
+            <th>Описание</th>
+            <th>Пример</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each words}}
+        <tr>
+            <td>{{inc @index}}</td>
+            <td>{{formatDate this.date}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.example}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -5,10 +5,9 @@ var Word = new Schema({
     title: String,
     description: String,
     example: String,
-    author: ObjectId,
     date: Date,
     rating: { type: Number, default: 0 },
-    voices: [ObjectId]
+    voices: [Schema.Types.ObjectId]
 });
 
 module.exports = mongoose.model('words', Word);

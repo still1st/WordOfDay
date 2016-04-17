@@ -38,6 +38,7 @@
     <Compile Include="bin\www" />
     <Compile Include="routes\words.js" />
     <Compile Include="services\database.js" />
+    <Compile Include="services\wordService.js" />
     <Content Include=".bowerrc" />
     <Content Include="config.json" />
     <Content Include="package.json" />

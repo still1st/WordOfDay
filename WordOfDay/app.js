@@ -10,7 +10,8 @@ var db = require('./services/database');
 var app = express();
 
 // view engine setup
-app.engine('handlebars', handlebars({ defaultLayout: 'layout'}));
+var engine = createEngine(handlebars);
+app.engine('handlebars', engine);
 app.set('view engine', 'handlebars');
 
 app.use(logger('dev'));
@@ -73,5 +74,21 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
+
+function createEngine(handlebars){
+    var hbs = handlebars.create({
+        defaultLayout: 'layout',
+        helpers: {
+            inc: function (number) {
+                return parseInt(number) + 1;
+            },
+            formatDate: function (date) {
+                return date.toISOString().substring(0, 10);
+            }
+        }
+    });
+
+    return hbs.engine;
+}
 
 module.exports = app;
