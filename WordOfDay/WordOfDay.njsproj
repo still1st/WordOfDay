@@ -34,6 +34,7 @@
     <Compile Include="models\account.js" />
     <Compile Include="models\favorite.js" />
     <Compile Include="models\word.js" />
+    <Compile Include="public\js\main.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="bin\www" />
     <Compile Include="routes\words.js" />

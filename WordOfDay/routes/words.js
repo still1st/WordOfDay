@@ -29,4 +29,32 @@ router.post('/add', function (req, res) {
     });
 });
 
+// POST words/plus
+router.get('/plus', function (req, res) {
+    var wordId = req.query.wordId;
+    var userId = req.user._id;
+
+    wordService.increaseRating(wordId, userId, function (err, doc) {
+        if (err) {
+            throw err;
+        }
+
+        res.json(doc);
+    });
+});
+
+// POST words/minus
+router.get('/minus', function (req, res) {
+    var wordId = req.query.wordId;
+    var userId = req.user._id;
+
+    wordService.decreaseRating(wordId, userId, function (err, doc) {
+        if (err) { 
+            throw err;
+        }
+
+        res.json(doc);
+    });
+});
+
 module.exports = router;

@@ -1,6 +1,6 @@
 # WordOfDay
 
-cd ./WordOfDay
+cd ./WordOfDay/WordOfDay
 
 npm install
 

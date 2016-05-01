@@ -7,7 +7,7 @@ var wordService = require('../services/wordService');
 router.get('/', function (req, res) {
     wordService.findCurrentWord(function (err, word) {
         if (err) {
-            throw err
+            throw err;
         }
 
         res.render('index', { user: req.user, word: word });
