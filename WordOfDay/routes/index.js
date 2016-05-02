@@ -9,6 +9,11 @@ router.get('/', function (req, res) {
         if (err) {
             throw err;
         }
+        
+        if (req.user) {
+            word.isVoted = word.voices.indexOf(req.user._id) > -1;
+            word.isFavorited = word.favorites.indexOf(req.user._id) > -1;
+        }
 
         res.render('index', { user: req.user, word: word });
     });

@@ -7,7 +7,8 @@ var Word = new Schema({
     example: String,
     date: Date,
     rating: { type: Number, default: 0 },
-    voices: [Schema.Types.ObjectId]
+    voices: [Schema.Types.ObjectId],
+    favorites: [Schema.Types.ObjectId]
 });
 
 module.exports = mongoose.model('words', Word);

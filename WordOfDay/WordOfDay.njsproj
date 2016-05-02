@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="models\account.js" />
-    <Compile Include="models\favorite.js" />
     <Compile Include="models\word.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="routes\index.js" />
@@ -51,6 +50,7 @@
     <Content Include="views\login.handlebars" />
     <Content Include="views\register.handlebars" />
     <Content Include="views\words\list.handlebars" />
+    <Content Include="views\words\top.handlebars" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

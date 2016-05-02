@@ -1,0 +1,20 @@
+﻿<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Дата</th>
+            <th>Слово</th>
+            <th>Рейтинг</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each words}}
+        <tr>
+            <td>{{inc @index}}</td>
+            <td>{{formatDate this.date}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.rating}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

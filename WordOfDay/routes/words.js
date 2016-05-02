@@ -8,13 +8,13 @@ router.get('/list', function (req, res) {
         if (err) {
             throw err;
         }
-
+        
         return res.render('words/list', { user: req.user, words: words });
     });
 });
 
 // GET words/add
-router.get('/add', function (req, res) { 
+router.get('/add', function (req, res) {
     res.render('words/add', { user: req.user });
 });
 
@@ -24,36 +24,62 @@ router.post('/add', function (req, res) {
         if (err) {
             throw err;
         }
-
+        
         res.redirect('/words/list');
     });
 });
 
-// POST words/plus
-router.get('/plus', function (req, res) {
-    var wordId = req.query.wordId;
-    var userId = req.user._id;
-
-    wordService.increaseRating(wordId, userId, function (err, doc) {
+// GET words/top
+router.get('/top', function (req, res) {
+    var count = 100;
+    wordService.getTop(count, function (err, words) {
         if (err) {
             throw err;
         }
-
-        res.json(doc);
+        
+        res.render('words/top', { user: req.user, words: words });
     });
 });
 
-// POST words/minus
+// GET words/plus
+router.get('/plus', function (req, res) {
+    var wordId = req.query.wordId;
+    var userId = req.user._id;
+    
+    wordService.increaseRating(wordId, userId, function (err, word) {
+        if (err) {
+            throw err;
+        }
+        
+        res.json(word);
+    });
+});
+
+// GET words/minus
 router.get('/minus', function (req, res) {
     var wordId = req.query.wordId;
     var userId = req.user._id;
-
-    wordService.decreaseRating(wordId, userId, function (err, doc) {
-        if (err) { 
+    
+    wordService.decreaseRating(wordId, userId, function (err, word) {
+        if (err) {
             throw err;
         }
+        
+        res.json({ 'rating': word.rating });
+    });
+});
 
-        res.json(doc);
+// GET words/favorite
+router.get('/favorite', function (req, res) {
+    var wordId = req.query.wordId;
+    var userId = req.user._id;
+    
+    wordService.setFavorite(wordId, userId, function (err, word) {
+        if (err) {
+            throw err;
+        }
+        
+        res.json({ 'favorite': word.favorites.indexOf(userId) > -1 });
     });
 });
 
