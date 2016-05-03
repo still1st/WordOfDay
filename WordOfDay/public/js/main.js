@@ -24,6 +24,8 @@
         
         $.get(url, getParameters(), function (data) {
             $('#rating').text(data.rating);
+            $('#rating-plus').remove();
+            $('#rating-minus').remove();
         }).fail(function () {
             console.error('fail');
         });

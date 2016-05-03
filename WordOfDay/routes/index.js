@@ -5,17 +5,17 @@ var Account = require('../models/account');
 var wordService = require('../services/wordService');
 
 router.get('/', function (req, res) {
-    wordService.findCurrentWord(function (err, word) {
+    wordService.getCurrentWord(function (err, word) {
         if (err) {
             throw err;
         }
         
-        if (req.user) {
+        if (req.user && word) {
             word.isVoted = word.voices.indexOf(req.user._id) > -1;
             word.isFavorited = word.favorites.indexOf(req.user._id) > -1;
         }
 
-        res.render('index', { user: req.user, word: word });
+        res.render('words/word', { user: req.user, word: word });
     });
 });
 

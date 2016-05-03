@@ -4,7 +4,7 @@ var wordService = require('../services/wordService');
 
 // GET words/list
 router.get('/list', function (req, res) {
-    wordService.findAll(function (err, words) {
+    wordService.getAll(function (err, words) {
         if (err) {
             throw err;
         }
@@ -80,6 +80,19 @@ router.get('/favorite', function (req, res) {
         }
         
         res.json({ 'favorite': word.favorites.indexOf(userId) > -1 });
+    });
+});
+
+// GET words/favorite
+router.get('/favorites', function (req, res) {
+    var userId = req.user._id;
+
+    wordService.getFavorites(userId, function (err, words) {
+        if (err) {
+            throw err;
+        }
+
+        res.render('words/favorites', { user: req.user, words: words });
     });
 });
 

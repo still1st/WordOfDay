@@ -18,13 +18,13 @@ function save(data, callback) {
     });
 }
 
-function findAll(callback) {
+function getAll(callback) {
     Word.find({})
     .sort({ date: -1 })
     .exec(callback);
 }
 
-function findCurrentWord(callback) {
+function getCurrentWord(callback) {
     var now = moment.utc();
     now.hour(0);
     now.minute(0);
@@ -56,6 +56,10 @@ function getTop(count, callback) {
         .exec(callback);
 }
 
+function getById(wordId, callback) {
+    Word.findById(wordId).exec(callback);
+}
+
 function setFavorite(wordId, userId, callback) {
     Word.findById(wordId, function (err, word) {
         if (err) {
@@ -74,12 +78,24 @@ function setFavorite(wordId, userId, callback) {
     });
 }
 
+function getFavorites(userId, callback) {
+    Word.find({
+        favorites: {
+            $elemMatch: {
+                $eq: userId
+            }
+        }
+    }).exec(callback);
+}
+
 module.exports = {
     save: save,
-    findAll: findAll,
-    findCurrentWord: findCurrentWord,
+    getAll: getAll,
+    getCurrentWord: getCurrentWord,
     increaseRating: increaseRating,
     decreaseRating: decreaseRating,
     getTop: getTop,
-    setFavorite: setFavorite
+    setFavorite: setFavorite,
+    getById: getById,
+    getFavorites: getFavorites
 };

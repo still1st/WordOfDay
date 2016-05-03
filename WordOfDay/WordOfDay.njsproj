@@ -44,7 +44,8 @@
     <Content Include="package.json" />
     <Content Include="public\css\main.css" />
     <Content Include="views\words\add.handlebars" />
-    <Content Include="views\index.handlebars" />
+    <Content Include="views\words\favorites.handlebars" />
+    <Content Include="views\words\word.handlebars" />
     <Content Include="views\layouts\layout.handlebars" />
     <Content Include="views\error.handlebars" />
     <Content Include="views\login.handlebars" />

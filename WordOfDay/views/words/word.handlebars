@@ -1,0 +1,50 @@
+﻿{{#if word}}
+<div class="panel panel-default">
+    <!--PANEL HEAD-->
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4">{{formatDate word.date}}</div>
+            <div class="col-md-4">
+                <h3 class="panel-title text-center">{{word.title}}</h3>
+            </div>
+            {{#if user}}
+            <div class="col-md-4">
+                <div class="pull-right">
+                    {{#if word.isFavorited}}
+                    <a id="set-favorite" class="glyphicon glyphicon-star"></a>
+                    {{else}}
+                    <a id="set-favorite" class="glyphicon glyphicon-star-empty"></a>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <!--PANEL BODY-->
+    <div class="panel-body">
+        <input id="wordId" type="hidden" name="wordId" value="{{word._id}}" />
+        <p>{{word.description}}</p>
+        {{#if word.example}}
+        <hr />
+        <p>{{word.example}}</p>
+        {{/if}}
+    </div>
+    <!--PANEL FOOTER-->
+    {{#if user}}
+    <div class="panel-footer">
+        <div class="pull-right">
+            {{#unless word.isVoted}}
+            <a id="rating-plus" class="glyphicon glyphicon-plus"></a>
+            {{/unless}}
+            <span id="rating">{{word.rating}}</span>
+            {{#unless word.isVoted}}
+            <a id="rating-minus" class="glyphicon glyphicon-minus"></a>
+            {{/unless}}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    {{/if}}
+</div>
+{{else}}
+<p>На сегодня слов больше нет</p>
+{{/if}}
